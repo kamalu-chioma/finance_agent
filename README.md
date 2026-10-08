@@ -73,6 +73,19 @@ Web UI:
 streamlit run app/streamlit_app.py
 ```
 
+## Deploy (Streamlit Community Cloud)
+
+1. Push this repo to GitHub (already done if you're reading this from there).
+2. Go to [share.streamlit.io](https://share.streamlit.io), "New app", pick this repo.
+3. Set **Main file path** to `app/streamlit_app.py`.
+4. In the app's **Settings -> Secrets**, paste the contents of `.streamlit/secrets.toml.example`
+   with real values (at minimum `OPENAI_API_KEY`). Secrets there are separate from `.env` —
+   `.env` is only read for local/CLI use.
+5. Deploy. First run per ticker is slower (builds the RAG index); subsequent runs on the same
+   ticker reuse the on-disk Chroma store until the app restarts.
+
+`.python-version` pins the runtime to 3.11; `.streamlit/config.toml` sets headless mode and theme.
+
 ## Tests
 
 ```bash

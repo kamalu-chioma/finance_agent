@@ -5,6 +5,15 @@ import streamlit as st
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
 
+# On Streamlit Community Cloud, secrets are configured via the dashboard's secrets.toml editor
+# (st.secrets), not a .env file. Mirror them into os.environ before importing finance_agent.config
+# so the same pydantic Settings class works unchanged in both local dev and on Cloud.
+try:
+    for _key, _value in st.secrets.items():
+        os.environ.setdefault(_key, str(_value))
+except Exception:
+    pass  # no secrets.toml present (e.g. local dev using .env) — fine
+
 from finance_agent.agents.graph import build_graph, initial_state  # noqa: E402
 from finance_agent.config import settings  # noqa: E402
 from finance_agent.exceptions import TickerNotFoundError  # noqa: E402

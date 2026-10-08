@@ -3,6 +3,7 @@
 __pycache__/
 *.pyc
 .env
+.streamlit/secrets.toml
 .chroma/
 output/*.md
 !output/.gitkeep
