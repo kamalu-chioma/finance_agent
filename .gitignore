@@ -1,0 +1,11 @@
+.claude/
+.venv/
+__pycache__/
+*.pyc
+.env
+.chroma/
+output/*.md
+!output/.gitkeep
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
