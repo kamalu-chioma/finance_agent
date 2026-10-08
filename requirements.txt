@@ -1,9 +1,9 @@
 langchain==0.3.27
 langchain-openai==0.3.28
-langchain-community==0.3.27
 langchain-text-splitters
 langgraph==0.2.74
 chromadb==0.5.23
+langchain-chroma==0.2.6
 yfinance==1.7.0
 curl_cffi==0.16.3
 pandas==2.2.3

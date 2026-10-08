@@ -1,7 +1,7 @@
 import logging
 import os
 
-from langchain_community.vectorstores import Chroma
+from langchain_chroma import Chroma
 from langchain_core.documents import Document
 
 from finance_agent.rag.ingest import _collection_path, _embeddings
